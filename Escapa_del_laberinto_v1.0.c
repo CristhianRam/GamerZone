@@ -29,7 +29,7 @@ struct datos{
 //Funcion de evaluador de entrada de direccion del laberinto
 void evaluador( int f, int c, char laberinto[f][c]);
 
-//Funcion con fines de diseño en pantalla
+//Funcion con fines de diseÃ±o en pantalla
 void Color(int Background, int Text);
        
 enum Colors { 
@@ -64,10 +64,10 @@ int menu_laberinto(  ){
 	printf("1. Instrucciones \n");
 	printf("2. Jugar \n");
 	printf("3. Tablero \n");
-	printf("4. Volver al menú principal \n");
+	printf("4. Volver al menÃº principal \n");
 	
 	int num_menu;
-	printf("Seleccione una opción: \n");
+	printf("Seleccione una opciÃ³n: \n");
 	scanf("%d", &num_menu);
 	
 	return num_menu;
@@ -103,9 +103,9 @@ void posicion_laberinto(int *x, int *y , int f, int c, char laberinto[f][c], cha
 		
 	system("cls");
 	
-    fin = clock(); // registrar el tiempo de finalización
-    jugador[num_jugadores].tiempo_total = (double)(fin - inicio) / CLOCKS_PER_SEC; // calcular el tiempo que tardó el jugador en ganar
-    Color(BLACK, LGREEN);printf(" \n  ¡F E L I C I D A D E S !  \n  ¡H A Z   G A N A D O! :) \n");Color(BLACK, WHITE);
+    fin = clock(); // registrar el tiempo de finalizaciÃ³n
+    jugador[num_jugadores].tiempo_total = (double)(fin - inicio) / CLOCKS_PER_SEC; // calcular el tiempo que tardÃ³ el jugador en ganar
+    Color(BLACK, LGREEN);printf(" \n  Â¡F E L I C I D A D E S !  \n  Â¡H A Z   G A N A D O! :) \n");Color(BLACK, WHITE);
     E = 0;
 	  
    	}else if(laberinto[*x][*y] == '.' || laberinto[*x][*y] == 'o'  ){
@@ -119,7 +119,7 @@ void posicion_laberinto(int *x, int *y , int f, int c, char laberinto[f][c], cha
 		
 		(jugador[num_jugadores].error)++;
 		Color(BLACK, RED);printf("\n ------- UPPS. Hubo un choque... Inicia de nuevo --------- \n\n");
-		Color(BLACK, LMAGENTA);printf("Tu posición es [1][1] \n");Color(BLACK, WHITE);
+		Color(BLACK, LMAGENTA);printf("Tu posiciÃ³n es [1][1] \n");Color(BLACK, WHITE);
 		
 		
 		for(k=0; k < f; k++){
@@ -170,9 +170,9 @@ int main() {
     	//Introduccion
     	Color(BLACK, LMAGENTA);printf("\n Escapa del laberinto \n");Color(BLACK, WHITE);
     	
-    	printf("\nEl juego de escapar del laberinto es un juego en el que el jugador debe encontrar la salida de un\nlaberinto lo más rápido posible. El laberinto consta de pasillos que llevan a diferentes áreas del\nlaberinto, pero solo uno de ellos conduce a la salida.\n" );
-    	printf("\nEl jugador comienza en una posición determinada en el laberinto y debe avanzar por los pasillos,\nhasta encontrar la salida. \n  ");
-    	printf("\nEl juego tiene tres modalidades fácil, medio y difícil lo cual depende del tamaño del laberinto. Al \nconcluir el juego se presentará los errores que tuviste, es decir las veces que chocaste con una\npared, y el tiempo en que resolviste el laberinto, lo que agrega un factor de emoción al juego.");
+    	printf("\nEl juego de escapar del laberinto es un juego en el que el jugador debe encontrar la salida de un\nlaberinto lo mÃ¡s rÃ¡pido posible. El laberinto consta de pasillos que llevan a diferentes Ã¡reas del\nlaberinto, pero solo uno de ellos conduce a la salida.\n" );
+    	printf("\nEl jugador comienza en una posiciÃ³n determinada en el laberinto y debe avanzar por los pasillos,\nhasta encontrar la salida. \n  ");
+    	printf("\nEl juego tiene tres modalidades fÃ¡cil, medio y difÃ­cil lo cual depende del tamaÃ±o del laberinto. Al \nconcluir el juego se presentarÃ¡ los errores que tuviste, es decir las veces que chocaste con una\npared, y el tiempo en que resolviste el laberinto, lo que agrega un factor de emociÃ³n al juego.");
 	
 		break;
     	
@@ -183,9 +183,9 @@ int main() {
     	printf("\n Ingrese el nombre del jugador: \n");
     	scanf("%s", jugador[num_jugadores].nombre);
 	    printf("\nSelecciona la modalidad del juego:\n");
-	    printf("1. Fácil\n");
+	    printf("1. FÃ¡cil\n");
 	    printf("2. Medio\n");
-	    printf("3. Difícil\n");
+	    printf("3. DifÃ­cil\n");
 	    
 	    int opcion;
 	    int f=0, c=0;
@@ -213,7 +213,7 @@ int main() {
 	                "###.##...#",
 	                "##########",
 	            };
-	        	strcpy(jugador[num_jugadores].modo, "Fácil");
+	        	strcpy(jugador[num_jugadores].modo, "FÃ¡cil");
 	            impresion_laberinto(f, c, laberinto_facil);	
 	            evaluador(f, c, laberinto_facil);
 	            break;
@@ -292,7 +292,7 @@ int main() {
 	            break;
 	             
 	        default:
-	            printf("Opción inválida\n");
+	            printf("OpciÃ³n invÃ¡lida\n");
 	            break;
 	    }
     	
@@ -316,7 +316,7 @@ int main() {
     	
     	//Regresa al menu principal de los 4 juegos
     	case 4:
-        printf("\n Menú principal \n");
+        printf("\n MenÃº principal \n");
         break;
     	
     	default:
@@ -324,7 +324,7 @@ int main() {
         break;
 	}
 	//Retorno al menu del juego
-		Color(BLACK,BROWN);printf("\n\n Presione cualquier letra para volver al menú del juego... \n ");Color(BLACK, WHITE);
+		Color(BLACK,BROWN);printf("\n\n Presione cualquier letra para volver al menÃº del juego... \n ");Color(BLACK, WHITE);
         getchar();
         getchar(); 
         printf("\n");
@@ -342,8 +342,8 @@ void evaluador( int f, int c, char laberinto[f][c]){
 	int columnaActual=1;
 	char limpiador[f][c];
 	
-	printf("Introduzca la dirección ( w / s / a / d ) \n");
-	Color(BLACK, LMAGENTA);printf("Tu posición es [1][1] \n");	Color(BLACK, WHITE);
+	printf("Introduzca la direcciÃ³n ( w / s / a / d ) \n");
+	Color(BLACK, LMAGENTA);printf("Tu posiciÃ³n es [1][1] \n");	Color(BLACK, WHITE);
 	
 	inicio = clock(); // registrar el tiempo de inicio
 	
