@@ -8,7 +8,7 @@ Fecha 05/05/23
 Compilador: Dev-C++ 5.11
 */
 
-//Declaración de librerias
+//DeclaraciÃ³n de librerias
 #include <stdio.h>
 #include <locale.h>
 #include <stdbool.h>
@@ -32,7 +32,7 @@ struct DatosJugadores{
 	
 }jugador[50];
 
-//Declaración de funciones
+//DeclaraciÃ³n de funciones
 void evaluarPartida( int fila, int columna, char laberinto[fila][columna]);
 
 void Color(int Background, int Text);
@@ -58,7 +58,7 @@ enum Colors {
 
 int imprimirMenuLaberinto(  ){
 	Color(BLACK, LCYAN);
-	//Impresión del menú del juego
+	//ImpresiÃ³n del menÃº del juego
 	printf("\n------------------------------------------------------------------------------------------------------------------\n");
 	printf("  _____                                       _        _   _         _                  _         _          \n");
   	printf(" |  ___|                                     | |      | | | |       | |                (_)       | |         \n");
@@ -80,20 +80,20 @@ int imprimirMenuLaberinto(  ){
 	printf("\n");
 		Color(BLACK,WHITE); printf("\n             _________________                      ");printf("            ");	Color(BLACK,WHITE); printf("         _________________                      \n");
 		Color(BLACK,WHITE); printf("            /                 \\                      ");printf("            "); Color(BLACK,WHITE); printf("       /                 \\                      \n"); 
-		Color(BLACK,WHITE); printf("           |     3: Tablero    |                        ");printf("            "); Color(BLACK,WHITE); printf("   | 4: Menú principal |                        \n"); 
+		Color(BLACK,WHITE); printf("           |     3: Tablero    |                        ");printf("            "); Color(BLACK,WHITE); printf("   | 4: MenÃº principal |                        \n"); 
 		Color(BLACK,WHITE); printf("            \\_________________/                         ");printf("            "); Color(BLACK,WHITE); printf("    \\_________________/                        \n "); 
 		
-	//Selección de opción
+	//SelecciÃ³n de opciÃ³n
 	int num_menu;
-	Color(BLACK, BLUE);printf("\n\n                                         Seleccione una opción:");Color(BLACK, WHITE);scanf("%d", &num_menu);
+	Color(BLACK, BLUE);printf("\n\n                                         Seleccione una opciÃ³n:");Color(BLACK, WHITE);scanf("%d", &num_menu);
 	
 	
-	return num_menu; //Retorna la opción
+	return num_menu; //Retorna la opciÃ³n
 	
 }
 
 void imprimirLaberinto(int fila, int columna, char laberinto[fila][columna]){
-	//Impresión del laberinto actualizado
+	//ImpresiÃ³n del laberinto actualizado
 	
 	system("cls");
 	printf("\n");
@@ -122,16 +122,16 @@ void verificarPosicionLaberinto(int *x, int *y , int fila, int columna, char lab
 		
 		system("cls");
 	
-	    fin_tiempo = clock(); // registrar el tiempo de finalización
-	    jugador[num_jugadores].tiempo_total = (double)(fin_tiempo - inicio_tiempo) / CLOCKS_PER_SEC; // calcular el tiempo que tardó el jugador en ganar
-	    Color(BLACK, LGREEN);printf(" \n  ¡F E L I C I D A D E S !  \n  ¡H A Z   G A N A D O! :) \n");Color(BLACK, WHITE);
+	    fin_tiempo = clock(); // registrar el tiempo de finalizaciÃ³n
+	    jugador[num_jugadores].tiempo_total = (double)(fin_tiempo - inicio_tiempo) / CLOCKS_PER_SEC; // calcular el tiempo que tardÃ³ el jugador en ganar
+	    Color(BLACK, LGREEN);printf(" \n  Â¡F E L I C I D A D E S !  \n  Â¡H A Z   G A N A D O! :) \n");Color(BLACK, WHITE);
 	    evaluador_de_partida = 0;
 	  
    	}else if(laberinto[*x][*y] == '.' || laberinto[*x][*y] == 'o'  ){ //Recorrido del jugador en el laberinto
 		
 		laberinto[*x][*y] = 'o';
 		
-		imprimirLaberinto(fila, columna, laberinto);	//Invocar impresión de laberinto
+		imprimirLaberinto(fila, columna, laberinto);	//Invocar impresiÃ³n de laberinto
 		printf("\n");
 		printf("Introduzca la direccion ( w / s / a / d ) \n");
 		
@@ -156,13 +156,13 @@ void verificarPosicionLaberinto(int *x, int *y , int fila, int columna, char lab
 		
 		laberinto[*x][*y] = '#';
 		
-		//Retoma posición inicial
+		//Retoma posiciÃ³n inicial
 		*x=1;
 		*y=1;
 		
-		imprimirLaberinto(fila, columna, laberinto);	//Invocar impresión de laberinto
+		imprimirLaberinto(fila, columna, laberinto);	//Invocar impresiÃ³n de laberinto
 		Color(BLACK, RED);printf("\n ------- UPPS. Hubo un choque... Inicia de nuevo --------- \n\n");
-		Color(BLACK, LMAGENTA);printf("Tu posición es [1][1] \n");Color(BLACK, WHITE);
+		Color(BLACK, LMAGENTA);printf("Tu posiciÃ³n es [1][1] \n");Color(BLACK, WHITE);
 		printf("\n");
 		printf("Introduzca la direccion ( w / s / a / d ) \n");
 		
@@ -188,14 +188,14 @@ int main() {
     
     switch(menu){
     	
-    	case 1:  //Introducción
+    	case 1:  //IntroducciÃ³n
     	system("cls");
     	
     	Color(BLACK, LMAGENTA);printf("\n Escapa del laberinto \n");Color(BLACK, WHITE);
     	
-    	printf("\nEl juego de escapar del laberinto es un juego en el que el jugador debe encontrar la salida de un\nlaberinto lo más rápido posible. El laberinto consta de pasillos que llevan a diferentes áreas del\nlaberinto, pero solo uno de ellos conduce a la salida.\n" );
-    	printf("\nEl jugador comienza en una posición determinada en el laberinto y debe avanzar por los pasillos,\nhasta encontrar la salida. \n  ");
-    	printf("\nEl juego tiene tres modalidades fácil, medio y difícil lo cual depende del tamaño del laberinto. Al \nconcluir el juego se presentará los errores que tuviste, es decir las veces que chocaste con una\npared, y el tiempo en que resolviste el laberinto, lo que agrega un factor de emoción al juego.");
+    	printf("\nEl juego de escapar del laberinto es un juego en el que el jugador debe encontrar la salida de un\nlaberinto lo mÃ¡s rÃ¡pido posible. El laberinto consta de pasillos que llevan a diferentes Ã¡reas del\nlaberinto, pero solo uno de ellos conduce a la salida.\n" );
+    	printf("\nEl jugador comienza en una posiciÃ³n determinada en el laberinto y debe avanzar por los pasillos,\nhasta encontrar la salida. \n  ");
+    	printf("\nEl juego tiene tres modalidades fÃ¡cil, medio y difÃ­cil lo cual depende del tamaÃ±o del laberinto. Al \nconcluir el juego se presentarÃ¡ los errores que tuviste, es decir las veces que chocaste con una\npared, y el tiempo en que resolviste el laberinto, lo que agrega un factor de emociÃ³n al juego.");
 	
 		break;
     	
@@ -203,13 +203,13 @@ int main() {
     	system("cls");
     	num_jugadores++; //Contador de jugadores aumenta
 
-		//Impresión de menú de modalidades
+		//ImpresiÃ³n de menÃº de modalidades
     	printf("\n Ingrese el nombre del jugador: \n");
     	scanf("%s", jugador[num_jugadores].nombre);
 	    printf("\nSelecciona la modalidad del juego:\n");
-	    printf("1. Fácil\n");
+	    printf("1. FÃ¡cil\n");
 	    printf("2. Medio\n");
-	    printf("3. Difícil\n");
+	    printf("3. DifÃ­cil\n");
 	    
 	    int opcion;
 	    int fila=0, columna=0;
@@ -236,7 +236,7 @@ int main() {
 	                "###.##...#",
 	                "##########",
 	            };
-	        	strcpy(jugador[num_jugadores].modo, "Fácil"); //Indica modalidad del laberinto
+	        	strcpy(jugador[num_jugadores].modo, "FÃ¡cil"); //Indica modalidad del laberinto
 	            imprimirLaberinto(fila, columna, laberinto_facil);	//Imprime el laberinto de la modalidad seleccionada
 	            evaluarPartida(fila, columna, laberinto_facil); //Evalua el juego del laberinto
 	            break;
@@ -315,7 +315,7 @@ int main() {
 	            break;
 	             
 	        default:
-	            printf("Opción inválida\n");
+	            printf("OpciÃ³n invÃ¡lida\n");
 	            break;
 	    }
     	
@@ -331,7 +331,7 @@ int main() {
     	while(k < num_jugadores ){
     		
     		printf( "%s                   %d         %.3f         %s \n", jugador[k+1].nombre,jugador[k+1].error, jugador[k+1].tiempo_total, jugador[k+1].modo );
-    		k++;//Impresión de todos los datos del jugador
+    		k++;//ImpresiÃ³n de todos los datos del jugador
 		}
     	
     	break;
@@ -364,8 +364,8 @@ void evaluarPartida( int fila, int columna, char laberinto[fila][columna]){ //Ev
 	char limpiador[fila][columna]; //Limpiador en caso de que choque contra una pared
 	
 	printf("\n");
-	printf("Introduzca la dirección ( w / s / a / d ) \n");
-	Color(BLACK, LMAGENTA);printf("Tu posición es [1][1] \n");	Color(BLACK, WHITE);
+	printf("Introduzca la direcciÃ³n ( w / s / a / d ) \n");
+	Color(BLACK, LMAGENTA);printf("Tu posiciÃ³n es [1][1] \n");	Color(BLACK, WHITE);
 
 	inicio_tiempo = clock(); // registrar el tiempo de inicio
 	
@@ -373,9 +373,9 @@ void evaluarPartida( int fila, int columna, char laberinto[fila][columna]){ //Ev
 		
 		char movimiento;
 		
-		movimiento=getch(); //Leer dirrección 
+		movimiento=getch(); //Leer dirrecciÃ³n 
 		
-		switch(movimiento){  //Evaluacion de dirrección 
+		switch(movimiento){  //Evaluacion de dirrecciÃ³n 
 			
 			case 'w':
 				
@@ -384,7 +384,7 @@ void evaluarPartida( int fila, int columna, char laberinto[fila][columna]){ //Ev
 					fila_actual--;
 					limpiador[fila_actual][columna_actual] = 'o'; //Guardar posiciones en el limpiador
 					
-					verificarPosicionLaberinto(&fila_actual, &columna_actual , fila, columna, laberinto, limpiador); //Invocar función de posiciones 
+					verificarPosicionLaberinto(&fila_actual, &columna_actual , fila, columna, laberinto, limpiador); //Invocar funciÃ³n de posiciones 
 				}
 					
 			break;
@@ -428,7 +428,7 @@ void evaluarPartida( int fila, int columna, char laberinto[fila][columna]){ //Ev
 					
 }
 
-//Función de colores 
+//FunciÃ³n de colores 
 
 void Color(int Background, int Text){ 
  HANDLE Console = GetStdHandle(STD_OUTPUT_HANDLE);
